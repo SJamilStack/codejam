@@ -1,8 +1,11 @@
-function isValid(s) {
+function repeatedString(s, n) {
+  let len = s.length;
   const min = 1;
   const maxs = 100;
   const maxn = 1000000000000;
-  return (
+
+  if (s.length == 1 && s.indexOf("a") != -1) return n;
+  else if (
     typeof s === "string" &&
     s.length >= min &&
     s.length <= maxs &&
@@ -10,13 +13,7 @@ function isValid(s) {
     n >= min &&
     n <= maxn &&
     s.indexOf("a") != -1
-  );
-}
-function repeatedString(s, n) {
-  let len = s.length;
-
-  if (s.length == 1 && s.indexOf("a") != -1) return n;
-  else if (isValid()) {
+  ) {
     let re = /a/gi;
     let count = s.match(re).length;
     let comp = Math.floor(n / len);
@@ -33,9 +30,3 @@ function repeatedString(s, n) {
 }
 
 console.log(repeatedString("x", 970770));
-// console.log(
-//   repeatedString(
-//     "afdfdsjfgdjdsvjsdfhwmnaaajsfjfhasbfaj1aaasbsanbasbf",
-//     725261545450
-//   )
-// );
